@@ -25,6 +25,10 @@
 
                     @if ($isOwnProfile)
                         <div class="mb-6">
+                            <a href="{{ route('profile.edit') }}" class="text-blue-600">Edit Profile</a>
+                        </div>
+
+                        <div class="mb-6">
                             <h4 class="text-md font-semibold">Update Profile Photo</h4>
                             @if (session('success'))
                                 <p class="text-green-600">{{ session('success') }}</p>
@@ -41,6 +45,21 @@
                                 <button type="submit" class="custom-button">Update Photo</button>
                             </form>
                         </div>
+
+                        <div class="mb-6">
+                            <h4 class="text-md font-semibold">Upload New Photo</h4>
+                            <form method="POST" action="{{ route('photo.store') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-4">
+                                    <label for="photo" class="block text-sm font-medium text-gray-700">Choose Photo</label>
+                                    <input type="file" name="photo" id="photo" class="mt-1 block w-full">
+                                    @error('photo')
+                                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <button type="submit" class="custom-button">Upload Photo</button>
+                            </form>
+                        </div>
                     @endif
 
                     <h3 class="text-lg font-semibold mt-6">Photos</h3>
@@ -51,6 +70,13 @@
                             @foreach ($photos as $photo)
                                 <div>
                                     <img src="{{ Storage::url($photo->url) }}" alt="Photo" class="w-[5rem] h-[5rem] object-cover">
+                                    @if ($isOwnProfile)
+                                        <form action="{{ route('photo.destroy', $photo) }}" method="POST" class="mt-2">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="custom-delete-button" onclick="return confirm('Are you sure?')">Delete</button>
+                                        </form>
+                                    @endif
                                 </div>
                             @endforeach
                         </div>

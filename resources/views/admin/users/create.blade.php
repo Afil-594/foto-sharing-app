@@ -42,7 +42,7 @@
                                 <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
-                        <button type="submit" class="custom-button">Create uuuUser</button>
+                        <button type="submit" class="custom-button">Create User</button>
                         <a href="{{ route('admin.users.index') }}" class="ml-2 text-gray-600">Cancel</a>
                     </form>
                 </div>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Explore Users
+            Dashboard
         </h2>
     </x-slot>
 
@@ -30,7 +30,7 @@
                             @else
                                 <div class="grid grid-cols-3 gap-4">
                                     @foreach ($user->photos->take(3) as $photo)
-                                       Incorrect: <div>
+                                        <div>
                                             <img src="{{ Storage::url($photo->url) }}" alt="Photo" class="w-[5rem] h-[5rem] object-cover">
                                         </div>
                                     @endforeach
