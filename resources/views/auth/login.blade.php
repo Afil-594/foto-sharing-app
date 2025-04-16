@@ -1,4 +1,11 @@
 <x-guest-layout>
+    <!-- Logo Section -->
+    <div class="flex justify-center mb-6">
+        <a href="/">
+            <img src="{{ asset('images/Fotoku.png') }}" alt="Logo" class="h-18 w-auto">
+        </a>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -15,12 +22,7 @@
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
+            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
