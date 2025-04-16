@@ -1,8 +1,8 @@
 <!-- resources/views/explore.blade.php -->
 <x-app-layout>
     <x-slot name="header">
-        <h2 style="font-weight: 600; font-size: 1.25rem; color: #1f2937; line-height: 1.25;">
-            Dashboard
+        <h2 style="font-weight: 1000; font-size: 1.25rem; color:#3e4648; line-height: 1.25; ">
+                FOTOKU
         </h2>
     </x-slot>
 
@@ -21,7 +21,7 @@
         .card {
             background-color: #fff;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(255, 255, 255, 0);
             border-radius: 0.5rem;
         }
         .card-content {
@@ -87,7 +87,7 @@
             width: 500px;
             height: 500px;
             object-fit: cover;
-            border: 2px solid #e5e5e5;
+            border: 2px solidrgb(255, 255, 255);
         }
         .no-photos {
             color: #4b5563;

@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     public function up(): void
-    {
-        Schema::table('users', function (Blueprint $table) {
+{
+    Schema::table('users', function (Blueprint $table) {
+        if (!Schema::hasColumn('users', 'profile_photo')) {
             $table->string('profile_photo')->nullable()->after('role');
-        });
-    }
+        }
+    });
+}
 
     public function down(): void
     {
@@ -19,3 +21,4 @@ return new class extends Migration
         });
     }
 };
+
